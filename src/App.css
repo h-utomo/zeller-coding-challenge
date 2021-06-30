@@ -1,0 +1,64 @@
+.App-header {
+	width: 800px;
+	margin: 0 auto;
+	padding: 0 24px;
+}
+
+.App-link {
+	color: #dbdcdc;
+}
+
+.radio-option {
+	padding-bottom: 8px;
+	min-height: 20px;
+	padding-top: 8px;
+	padding-left: 4px;
+}
+
+.radio-option:hover {
+	background-color: #d4f0fd;
+	border-radius: 5px;
+}
+
+.option-label {
+	padding-left: 8px;
+}
+
+.card-container {
+	display: flex;
+	padding: 8px;
+}
+
+.card-container:hover {
+	background-color: #d4f0fd;
+	border-radius: 5px;
+}
+
+.card-avatar {
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	font-size: 16px;
+	background-color: #a7d1f5;
+	color: #218be6;
+	border-radius: 5px;
+}
+
+.initial-container {
+	margin: auto;
+	padding-top: 10px;
+}
+
+.customer-details {
+	padding-left: 16px;
+}
+
+.customer-name {
+	font-size: large;
+	color: black;
+}
+
+.customer-role {
+	font-size: small;
+	color: grey;
+}
