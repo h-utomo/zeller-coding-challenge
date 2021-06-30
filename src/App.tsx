@@ -1,12 +1,12 @@
 import './App.css';
 import { withApollo, graphql, compose, ChildDataProps } from 'react-apollo';
-import { ListZellerCustomers } from './graphql/queries';
+import { ListZellerCustomers } from './utils/graphql/queries';
 import { ReactElement, useState } from 'react';
 
 type listZellerCustomer = {
-	email: String;
-	id: String;
-	name: String;
+	email: string;
+	id: string;
+	name: string;
 	role: 'Admin' | 'Manager';
 };
 
@@ -37,11 +37,10 @@ type ListProps = {
 };
 
 const List = (props: ListProps): ReactElement => {
-	const { customerList = [] } = props;
 	return (
 		<div>
-			{customerList.map((customer) => (
-				<div>
+			{props.customerList?.map((customer) => (
+				<div key={customer.id}>
 					<CustomerCard customer={customer} />
 				</div>
 			))}
@@ -67,7 +66,7 @@ const App = (props: AppProps): ReactElement => {
 		<div className='App-header'>
 			<h2>User Type</h2>
 			<div>
-				<div onClick={() => setUserType('Admin')} className='radio-option'>
+				<div className='radio-option'>
 					<input
 						type='radio'
 						id='Admin'
@@ -75,16 +74,17 @@ const App = (props: AppProps): ReactElement => {
 						checked={userType === 'Admin'}
 						onChange={(e) => setUserType(e.target.value)}
 					/>
-					<label className='option-label' htmlFor='admin'>
+					<label className='option-label' htmlFor='Admin'>
 						Admin
 					</label>
 				</div>
-				<div onClick={() => setUserType('Manager')} className='radio-option'>
+				<div className='radio-option'>
 					<input
 						type='radio'
 						id='Manager'
 						value='Manager'
 						checked={userType === 'Manager'}
+						onChange={(e) => setUserType(e.target.value)}
 					/>
 					<label className='option-label' htmlFor='Manager'>
 						Manager
